@@ -6,5 +6,5 @@ import com.example.springBoot_crud.Employee.models.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
-
+        Employee findByEmail(String email);
 }

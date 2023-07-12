@@ -1,6 +1,7 @@
 package com.example.springBoot_crud.Employee.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -29,7 +30,9 @@ public class Employee {
     private String date_of_joining;
     private String date_of_birth;
     private int age;
-    private String email_id;
+    @Column(unique = true)
+    private String email;
+    private String password;
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "system_id",referencedColumnName = "id")
